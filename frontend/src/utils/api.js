@@ -73,7 +73,7 @@ class Api {
 }
 
 const api = new Api({
-  url: 'http://localhost:4000',
+  url: 'http://api.mesto.sllexa.nomoreparties.co',
   headers: {
     "Content-Type": "application/json"
   }

@@ -46,6 +46,6 @@ class Auth {
   }
 }
 
-const auth = new Auth('http://localhost:4000');
+const auth = new Auth('http://api.mesto.sllexa.nomoreparties.co');
 
 export default auth;
