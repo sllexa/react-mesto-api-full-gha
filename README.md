@@ -42,7 +42,7 @@
 
 ## *Ссылки на проект*
 
-IP-адрес 84.201.174.207
+IP-адрес 158.160.46.97
 
 Frontend https://mesto.sllexa.nomoreparties.co
 
