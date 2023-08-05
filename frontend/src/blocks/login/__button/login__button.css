@@ -1,0 +1,36 @@
+.login__button {
+  width: 100%;
+  font-size: 18px;
+  line-height: 1.22;
+  border: none;
+  border-radius: 2px;
+  outline: none;
+  background-color: var(--color-white);
+  color: var(--color-black);
+  min-height: 50px;
+  transition: opacity .3s ease;
+  margin: 230px 0 0;
+}
+
+.login__button:hover {
+  opacity: 0.85;
+  cursor: pointer;
+}
+
+.login__button:disabled {
+  opacity: .2;
+  border: 1px solid var(--color-black);
+  color: var(--color-black);
+  box-sizing: border-box;
+}
+
+.login__button:disabled:hover {
+  cursor: default;
+}
+
+@media screen and (max-width: 500px) {
+  .login__button {
+    font-size: 16px;
+    line-height: 1.1875;
+  }
+}

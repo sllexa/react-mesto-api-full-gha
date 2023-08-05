@@ -1,0 +1,12 @@
+.login__error {
+  min-height: 34px;
+  display: block;
+  text-align: left;
+  font-size: 12px;
+  line-height: 1.2;
+  color: var(--color-red);
+  margin-top: 2px;
+  z-index: 200;
+  opacity: 1;
+  transition: visibility 0.3s, opacity 0.3s linear;
+}

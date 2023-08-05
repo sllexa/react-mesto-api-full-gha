@@ -1,0 +1,7 @@
+.modal__input-error {
+  display: block;
+  min-height: 30px;
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--color-red);
+}
