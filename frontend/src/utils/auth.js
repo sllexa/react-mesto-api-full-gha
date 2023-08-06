@@ -1,6 +1,6 @@
 class Auth {
   constructor(baseUrl) {
-    this._url = baseUrl;
+    this._baseUrl = baseUrl;
   }
 
   _checkResponse(res) {
@@ -8,11 +8,11 @@ class Auth {
   }
 
   _request(url, options) {
-    return fetch(this._url + url, options).then(this._checkResponse);
+    return fetch(`${this._baseUrl}/${url}`, options).then(this._checkResponse);
   }
 
   registerUser(email, password) {
-    return this._request('/signup', {
+    return this._request('signup', {
       method: 'POST',
       credentials: 'include',
       headers: { "Content-Type": "application/json" },
@@ -21,7 +21,7 @@ class Auth {
   }
 
   loginUser(email, password) {
-    return this._request('/signin', {
+    return this._request('signin', {
       method: 'POST',
       credentials: 'include',
       headers: { "Content-Type": "application/json" },
@@ -30,7 +30,7 @@ class Auth {
   }
 
   checkToken() {
-    return this._request('/users/me', {
+    return this._request('users/me', {
       method: 'GET',
       credentials: 'include',
       headers: { "Content-Type": "application/json" }
@@ -38,7 +38,7 @@ class Auth {
   }
 
   logOut() {
-    return this._request('/logout', {
+    return this._request('logout', {
       method: 'GET',
       credentials: 'include',
       headers: { "Content-Type": "application/json" }
@@ -46,6 +46,6 @@ class Auth {
   }
 }
 
-const auth = new Auth('http://api.mesto.sllexa.nomoreparties.co');
+const auth = new Auth('https://api.mesto.sllexa.nomoreparties.co');
 
 export default auth;

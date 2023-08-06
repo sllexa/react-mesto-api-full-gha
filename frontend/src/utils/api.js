@@ -1,6 +1,6 @@
 class Api {
   constructor({url, headers}) {
-    this._url = url;
+    this._baseUrl = url;
     this._headers = headers;
   }
 
@@ -9,7 +9,7 @@ class Api {
   }
 
   _request(url, options) {
-    return fetch(this._url + url, options).then(this._checkResponse);
+    return fetch(this._baseUrl + url, options).then(this._checkResponse);
   }
 
   getCards() {
@@ -73,7 +73,7 @@ class Api {
 }
 
 const api = new Api({
-  url: 'http://api.mesto.sllexa.nomoreparties.co',
+  url: 'https://api.mesto.sllexa.nomoreparties.co',
   headers: {
     "Content-Type": "application/json"
   }
