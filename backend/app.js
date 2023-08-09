@@ -4,22 +4,16 @@ const mongoose = require('mongoose');
 const { errors } = require('celebrate');
 const cookieParser = require('cookie-parser');
 const helmet = require('helmet');
-const rateLimit = require('express-rate-limit');
 const cors = require('cors');
 const handelError = require('./middlewares/handelError');
 const { requestLogger, errorLogger } = require('./middlewares/logger');
 const routes = require('./routes/routes');
+const limiter = require('./middlewares/limiter');
 
-const { PORT = 3000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
+const { PORT = 4000, MONGO_URL = 'mongodb://127.0.0.1:27017/mestodb' } = process.env;
 const app = express();
 
-const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // за 15 минут
-  max: 100, // можно совершить максимум 100 запросов с одного IP
-});
-
 app.use(helmet());
-app.use(limiter);
 app.use(cookieParser());
 app.use(express.json());
 app.use(requestLogger);
@@ -33,6 +27,7 @@ app.get('/crash-test', () => {
 
 app.use(routes);
 app.use(errorLogger);
+app.use(limiter);
 app.use(errors());
 app.use(handelError);
 

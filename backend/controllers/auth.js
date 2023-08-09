@@ -12,9 +12,6 @@ const createUser = async (req, res, next) => {
     const {
       name, about, avatar, email, password,
     } = req.body;
-    if (!email || !password) {
-      throw new BadRequestError('Поля email и password обязательны.');
-    }
     const hash = await bcrypt.hash(password, 10);
     await User.create({
       name, about, avatar, email, password: hash,
